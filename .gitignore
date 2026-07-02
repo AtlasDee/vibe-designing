@@ -1,0 +1,22 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# temp extract dir (rebuildable from .skill)
+_extract/
+
+# Obsidian workspace config
+.obsidian/
+
+# GitHub 只发布 .skill 技能包 + README + changelog
+# 以下为内部资料/源码，不公开：
+_src/
+_demo/
+项目概况.md
+source.md
+
+# 归档的旧 skill（已被 vibe-designing 取代）
+_archive/
+
+# 内部完整日志（不公开；对外用 Public-log/public-log.md）
+log/changelog.md
