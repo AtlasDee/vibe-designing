@@ -26,6 +26,7 @@
 | **vibe-designing-field** | What·字段 | 功能详细说明里的**搜索 / 编辑 / 列表**三类字段说明表 |
 | **vibe-designing-feature** | What·规则 | 需求概述、功能说明表、状态-操作矩阵、权限节点/操作日志表、三级章节结构 |
 | **vibe-designing-uiux** | What·界面 | 交互概览（画板）、UI 页面图、交互说明、复杂功能点的核心业务流程交互图 |
+| **vibe-designing-prototype** | 姊妹分件·原型 | 需求 → 可交互 HTML 原型：多源提取、分层归属、控件模式库、交互范式、防坑清单、DOM 断言验证（产原型非 PRD）|
 
 **Pipeline**：
 
@@ -40,6 +41,8 @@
 ```
 
 `field / feature / uiux` 在「功能详细说明」内协作：feature 搭章节结构与业务规则，field 填字段表，uiux 贴 UI 图与交互说明，三者拼成每个功能模块的完整说明。
+
+> 姊妹分件 **prototype** 不产 PRD 章节：PRD 的功能清单/字段表指导原型做什么；原型反过来供 uiux 截图、供 field 核对字段与控件。
 
 ## 📐 全局约定
 
@@ -60,6 +63,7 @@
 ├── vibe-designing-field.skill        # 内含 references/field-examples.md
 ├── vibe-designing-feature.skill
 ├── vibe-designing-uiux.skill
+├── vibe-designing-prototype.skill
 ├── Public-log/public-log.md          # 公开更新日志
 └── README.md
 ```
