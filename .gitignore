@@ -23,3 +23,6 @@ log/changelog.md
 
 # 其他项目经验素材（含真实项目名，不公开）
 Experience/
+
+# 内部构建/同步工具（打包 + 同步 ~/.claude/skills + 敏感字符串复扫）
+tools/
