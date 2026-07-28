@@ -14,19 +14,21 @@
 - **结构与规范统一**：阿拉伯数字序号、三级章节结构、字段表列名规范、🔶 假设 / 🔵 待确认 行内标记、产出末尾自检。
 - **交互原型**：UI 图来自交互原型截图；交互概览以**画板/故事板**形式串联截图。
 
-## 🧩 技能组成（1 入口 + 5 分件）
+## 🧩 技能组成（1 入口 + 6 分件 + 3 姊妹分件）
 
-整理顺序镜像「需求 → 产品方案 → 详细文档」：
+整理顺序镜像「体检 → 需求 → 产品方案 → 详细文档」：
 
 | Skill | 角色 | 覆盖 PRD 内容 |
 |---|---|---|
-| **vibe-designing** | 总入口 / 编排 | 判断阶段并路由到下面五件，内置完整 pipeline 与章节地图 |
+| **vibe-designing** | 总入口 / 编排 | 判断阶段并路由到各分件，内置完整 pipeline、章节地图、正向↔反向双向流转说明，并附 **PRD 骨架模板** |
+| **vibe-designing-intake** | 第 0 段 · 体检 | 拿到需求先体检：六维度查缺失/矛盾/口径存疑 → **澄清清单**（每条带建议默认值）+ **可开工判断**（可直接写 / 边写边问 / 必须先澄清）（产清单非 PRD）|
 | **vibe-designing-describe** | Why | 需求摘要、版本信息、变更日志、背景和业务期望 |
 | **vibe-designing-businessflow** | What·宏观 | 需求目标+成功指标、使用场景、名词解释、关键业务流程、产品架构图、需求功能清单、Out-of-Scope |
 | **vibe-designing-field** | What·字段 | 功能详细说明里的**搜索 / 编辑 / 列表**三类字段说明表 |
 | **vibe-designing-feature** | What·规则 | 需求概述、功能说明表、状态-操作矩阵、权限节点/操作日志表、三级章节结构 |
 | **vibe-designing-uiux** | What·界面 | 交互概览（画板）、UI 页面图、交互说明、复杂功能点的核心业务流程交互图 |
 | **vibe-designing-prototype** | 姊妹分件·原型 | 需求 → 可交互 HTML 原型：多源提取、分层归属、控件模式库、交互范式、防坑清单、DOM 断言验证（产原型非 PRD）|
+| **vibe-designing-testcase** | 姊妹分件·用例 | 成文 PRD → **测试用例表**（校验/功能/状态流转/权限/交互/展示/动效等九类，含边界与异常）+ **PRD 可验证性体检报告**——推不出用例的地方就是 PRD 的缺口（产用例非 PRD）|
 | **vibe-designing-publish** | 姊妹分件·发布 | 成文 PRD md → 发布到云文档（如 Lark/飞书），对齐团队模板样式；⚠️ 涉及外部系统写操作，发布前须备份、范围须用户确认 |
 
 **Pipeline**：
@@ -59,14 +61,16 @@
 
 ```
 .
-├── vibe-designing.skill              # 总入口（.skill = ZIP，内含 SKILL.md）
+├── vibe-designing.skill              # 总入口（.skill = ZIP，内含 SKILL.md + references/）
+├── vibe-designing-intake.skill       # 第 0 段：需求体检与澄清
 ├── vibe-designing-describe.skill
 ├── vibe-designing-businessflow.skill
-├── vibe-designing-field.skill        # 内含 references/field-examples.md
+├── vibe-designing-field.skill        # 内含控件映射 / 报错文案库 / 字段范例等 references
 ├── vibe-designing-feature.skill
-├── vibe-designing-uiux.skill
-├── vibe-designing-prototype.skill
-├── vibe-designing-publish.skill
+├── vibe-designing-uiux.skill         # 内含截图与制图操作手册
+├── vibe-designing-prototype.skill    # 内含控件模式库与防坑清单
+├── vibe-designing-publish.skill      # 内含 API 机制、样式映射、脚本骨架
+├── vibe-designing-testcase.skill     # PRD → 测试用例 + 可验证性体检
 ├── Public-log/public-log.md          # 公开更新日志
 └── README.md
 ```
@@ -76,8 +80,10 @@
 1. 在 Claude / Claude Code 中加载本套 skill。
 2. 提供输入：业务需求 / 现有 PRD / 交互原型。
 3. 直接说诉求即可，例如：
+   - 「这份需求清楚吗 / 有什么要跟业务确认的」→ 先体检，出澄清清单；
    - 「把这份需求整理成 PRD」→ 总入口按 pipeline 跑全程；
-   - 「梳理功能说明 / 整理字段说明表 / 给功能模块补 UI 图」→ 路由到对应分件。
+   - 「梳理功能说明 / 整理字段说明表 / 给功能模块补 UI 图」→ 路由到对应分件；
+   - 「根据 PRD 出测试用例」→ 产用例表并反向体检 PRD 的可验证性。
 4. 产出结构规范的 PRD 内容；缺口以 🔵 标注，末尾附自检与下一步建议。
 
 ## 🛠️ 二次开发（编辑与打包）
