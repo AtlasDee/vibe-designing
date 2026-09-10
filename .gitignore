@@ -26,3 +26,6 @@ Experience/
 
 # 内部构建/同步工具（打包 + 同步 ~/.claude/skills + 敏感字符串复扫）
 tools/
+
+# Claude Code 本机会话配置（含本地路径，不公开）
+.claude/
