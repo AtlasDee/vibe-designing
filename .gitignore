@@ -29,3 +29,6 @@ tools/
 
 # Claude Code 本机会话配置（含本地路径，不公开）
 .claude/
+
+# Claude Code 项目约定（含本地路径与内部目录名，不公开）
+CLAUDE.md

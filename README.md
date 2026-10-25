@@ -12,8 +12,9 @@
 - **不只依赖原始需求**：按现有 PRD ＞ 交互原型/项目资料 ＞ 原始需求的优先级取信；
 - **四种情形自适应**：无 PRD 就从零生成，有但不完善就补全，仅细微不规范就检查修正，已完善就不动；
 - **结构与规范统一**：阿拉伯数字序号、三级章节结构、字段表列名规范、🔶 假设 / 🔵 待确认 行内标记、产出末尾自检；
-- **行文文风**：产出的是【人话】——口语连接词、真实取值举例、主语点名到具体角色或系统、规则不带目的从句；配 15 条 AI 味自检表，机器腔在交付前就扫掉；
-- **交互原型**：UI 图来自交互原型截图，每个功能模块配全屏图（在哪儿）＋局部图（长什么样），有操作步骤的再配一张**交互步骤链路图**（配置 → 中间态 → 前台呈现），交互概览用**画板/故事板**把截图串起来。
+- **行文文风**：产出的是【人话】——口语连接词、真实取值举例、主语点名到具体角色或系统、规则不带目的从句；配 21 条 AI 味自检表和洗稿四步，机器腔在交付前就扫掉；
+- **交互原型**：UI 图来自交互原型截图，每个功能模块配全屏图（在哪儿）＋局部图（长什么样），有操作步骤的再配一张**交互步骤链路图**（配置 → 中间态 → 前台呈现），交互概览用**画板/故事板**把截图串起来；出图用 Playwright 驱动浏览器，局部图直接按元素截，交互态直接点，不靠量坐标；
+- **自绘流程图**：业务流程图、架构图先给连线分类再摆节点，按间距公式留通道，分支条件画在线上，修图两轮不收敛就停下量坐标。
 
 ## 🧩 技能组成（1 入口 + 6 分件 + 3 姊妹分件）
 
@@ -24,10 +25,10 @@
 | **vibe-designing** | 总入口 / 编排 | 判断阶段并路由到各分件，内置完整 pipeline、章节地图、正向↔反向双向流转说明，并附 **PRD 骨架模板** 与 **行文文风规范**（人味十条 + AI 味自检表 + 句式模板库，六个产文字的分件共用）|
 | **vibe-designing-intake** | 第 0 段 · 体检 | 拿到需求先体检：六维度查缺失/矛盾/口径存疑 → 问题分三堆，**澄清清单**只问会改变做出来的东西的（每条带建议默认值），小事列进「我替你定的」+ **可开工判断**（可直接写 / 边写边问 / 必须先澄清）（产清单非 PRD）|
 | **vibe-designing-describe** | Why | 需求摘要、版本信息、变更日志、背景和业务期望 |
-| **vibe-designing-businessflow** | What·宏观 | 需求目标+成功指标、使用场景、名词解释、关键业务流程、产品架构图、需求功能清单 |
+| **vibe-designing-businessflow** | What·宏观 | 需求目标+成功指标、使用场景、名词解释、关键业务流程、产品架构图、需求功能清单；自绘流程图 / 架构图的摆位与走线规则 |
 | **vibe-designing-field** | What·字段 | 功能详细说明里的**搜索 / 编辑 / 列表**三类字段说明表 |
 | **vibe-designing-feature** | What·规则 | 需求概述、功能说明表、状态-操作矩阵、权限节点/操作日志表、三级章节结构 |
-| **vibe-designing-uiux** | What·界面 | 交互概览（画板）、每个功能模块的全屏图＋局部图、有操作步骤的交互步骤链路图、交互说明、复杂功能点的核心业务流程交互图 |
+| **vibe-designing-uiux** | What·界面 | 交互概览（画板）、每个功能模块的全屏图＋局部图、有操作步骤的交互步骤链路图、交互说明、复杂功能点的核心业务流程交互图；附 Playwright 出图手册与出图脚本模板 |
 | **vibe-designing-prototype** | 姊妹分件·原型 | 需求 → 可交互 HTML 原型：多源提取、分层归属、控件模式库、交互范式、防坑清单、DOM 断言验证（产原型非 PRD）|
 | **vibe-designing-testcase** | 姊妹分件·用例 | 成文 PRD → **测试用例表**（校验/功能/状态流转/权限/交互/展示/动效等九类，含边界与异常）+ **PRD 可验证性体检报告**——推不出用例的地方就是 PRD 的缺口（产用例非 PRD）|
 | **vibe-designing-publish** | 姊妹分件·发布 | 成文 PRD md → 发布到云文档（如 Lark/飞书），对齐团队模板样式；⚠️ 会写外部系统，发布前先备份，范围要用户确认 |
@@ -75,10 +76,10 @@
 ├── vibe-designing.skill              # 总入口（.skill = ZIP，内含 SKILL.md + references/：PRD 骨架模板、行文文风规范等）
 ├── vibe-designing-intake.skill       # 第 0 段：需求体检与澄清
 ├── vibe-designing-describe.skill
-├── vibe-designing-businessflow.skill
+├── vibe-designing-businessflow.skill # 含自绘流程图 / 架构图的摆位与走线规则
 ├── vibe-designing-field.skill        # 内含控件映射 / 报错文案库 / 字段范例等 references
 ├── vibe-designing-feature.skill
-├── vibe-designing-uiux.skill         # 内含截图与制图操作手册
+├── vibe-designing-uiux.skill         # 内含 Playwright 出图手册 + 出图脚本模板
 ├── vibe-designing-prototype.skill    # 内含控件模式库与防坑清单
 ├── vibe-designing-publish.skill      # 内含 API 机制、样式映射、脚本骨架
 ├── vibe-designing-testcase.skill     # PRD → 测试用例 + 可验证性体检
@@ -108,25 +109,29 @@ python -c "import os,zipfile;n='vibe-designing-uiux';src=n;z=zipfile.ZipFile(n+'
 
 ## 🔌 交互原型截图（uiux 配套技巧）
 
-给功能模块配 UI 图，推荐**用无头浏览器直接把原型页面写成 PNG**——落盘可靠，能直接嵌进文档：
+给功能模块配 UI 图，用 **Playwright 驱动 Chromium** 出图——有会话，所以点得了、等得住、问得到页面状态：
 
-```bash
-# 原型若需本地服务，先起静态服务器；再用无头浏览器截图
-chrome --headless=new --hide-scrollbars \
-  --force-device-scale-factor=2 \        # 2× 高清
-  --virtual-time-budget=5000 \           # 等图标/字体加载
-  --screenshot="out.png" --window-size=1280,1400 "http://localhost:PORT/页面.html"
+```python
+pg = br.new_page(viewport={"width": 1920, "height": 1080},  # 视口＝原型设计基准宽
+                 device_scale_factor=2)                      # 清晰度靠 DPR，不靠拉大视口
+r = pg.goto(url, wait_until="networkidle")
+if not r.ok: raise RuntimeError(r.status)                    # 错误页护栏：一行状态码
+pg.screenshot(path="full.png", animations="disabled")        # 全屏图
+pg.locator("aside.config").screenshot(path="part.png")       # 局部图：元素截图，不量坐标
 ```
 
-- **交互态**（要点击才展开的抽屉、弹窗）：复制原型页为临时副本，在 `</body>` 前注入自动展开脚本，截完删掉副本；
-- **自动裁白**：截完用 PIL `ImageChops.difference + getbbox` 裁掉四周纯色边，小卡片页只留元素；
-- **交互概览故事板**：用 PIL 把多张截图横排、画箭头、加步骤说明，拼成一张画板图；
-- **经验**：浏览器扩展类截图可能不回传可用的磁盘路径，**务必用无头浏览器落盘**，截图后和嵌入后各复查一次。
+- **交互态**（要点击才展开的抽屉、弹窗、悬停提示）：同一会话里 `click()` / `hover()` 直接驱动，**不做临时变体页**，零新增文件就零残留；
+- **护栏**：`response.ok` 拦错误页、`console`/4xx 监听、`locator.wait_for(state="visible")` 保证目标态真出现——以前靠判纯色、采样非白像素猜，漏过"截到错误页还发布两次"这类事故；
+- **落盘校验**：尺寸应等于元素 bbox×DPR（**留 ±2px 取整容差**），非白占比不异常，带点击的图跑两遍确认稳定；
+- **交互概览故事板**：用 PIL 把多张截图横排、画箭头、加步骤说明，拼成一张画板图；有操作步骤的功能模块另配一张「交互步骤链路图」（配置 → 中间态 → 前台呈现）；
+- 完整手册与可直接复制的出图脚本模板在 `vibe-designing-uiux.skill` 的 `references/`（`screenshot-guide.md` + `shot-template.py`）。
 
 ## 📜 更新日志
 
-见 [`Public-log/public-log.md`](Public-log/public-log.md)。当前版本 **V1.2**（tag `V1.2`）。
+见 [`Public-log/public-log.md`](Public-log/public-log.md)。最近一个版本 tag 是 **V1.2**（2026-09-10）。之后的改动还没打新 tag：AI 味自检表扩到 21 条并加洗稿流程、新增知识库技能 vibe-recommend、体检分件的问题先分三堆再出澄清清单、出图换成 Playwright、自绘流程图的摆位与走线规则。
 
 ## 设计依据
 
 归纳自实践中沉淀的 PRD 写作 house style + 团队需求文档模板，再吸收通用 PM 方法论（摘要句式、成功指标三件套、行内缺口标记、产出自检）。文风部分单独归纳自 8 份真实 PRD，逐句对照过人写与 AI 写的同一条规则。
+
+后期又从三个开源技能借过规则，都只借规则、不引入工具：humanizer（AI 味的写作 pattern）、superpowers（执行者冷读后把问题分三堆，只问用户能答的）、archify（出图前先分类连线、按公式留间距、自动查穿框）。
