@@ -18,8 +18,8 @@ source.md
 # 归档的旧 skill（已被 vibe-designing 取代）
 _archive/
 
-# 内部完整日志（不公开；对外用 Public-log/public-log.md）
-log/changelog.md
+# 内部完整日志与审查报告（不公开；对外用 Public-log/public-log.md）
+log/
 
 # 其他项目经验素材（含真实项目名，不公开）
 Experience/
