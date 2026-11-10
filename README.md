@@ -31,7 +31,7 @@
 | **vibe-designing-feature** | What·规则 | 需求概述、功能说明表、状态-操作矩阵、权限节点/操作日志表、三级章节结构 |
 | **vibe-designing-uiux** | What·界面 | 交互概览（画板）、每个功能模块的全屏图＋局部图、有操作步骤的交互步骤链路图、交互说明、复杂功能点的核心业务流程交互图；附 Playwright 出图手册与出图脚本模板 |
 | **vibe-designing-prototype** | 姊妹分件·原型 | 需求 → 可交互 HTML 原型：多源提取、分层归属、控件模式库、交互范式、防坑清单、DOM 断言验证（产原型非 PRD）|
-| **vibe-designing-testcase** | 姊妹分件·用例 | 成文 PRD → **测试用例表**（校验/功能/状态流转/权限/交互/展示/动效等九类，含边界与异常）+ **PRD 可验证性体检报告**——推不出用例的地方就是 PRD 的缺口；按需再出**回归测试集**（冒烟 / 改动影响 / 关键路径三层）和**缺陷报告**（产用例非 PRD）|
+| **vibe-designing-testcase** | 姊妹分件·用例 | 成文 PRD → **测试用例表**（校验/功能/状态流转/权限/交互/展示/动效等九类，含边界与异常）+ **PRD 可验证性体检报告**——推不出用例的地方就是 PRD 的缺口；按需再出**回归测试集**（冒烟 / 改动影响 / 关键路径三层，附提测准入与测试准出）和**缺陷报告**；多条件规则用判定表、配置项多时用成对组合（产用例非 PRD）|
 | **vibe-designing-acceptance** | 姊妹分件·验收 | 以没参与编写的验收人身份：开发前把 BRD、PRD、原型三向逐条对，查漏做、做错、多做；开发后出**线上验收记录**，逐条写步骤、预期、实际结果和证据（产验收报告与验收记录非 PRD）|
 | **vibe-designing-publish** | 姊妹分件·发布 | 成文 PRD md → 发布到云文档（如 Lark/飞书），对齐团队模板样式；⚠️ 会写外部系统：默认只预览不写入，先备份、双向比对，用户确认目标与范围后才写 |
 
@@ -141,4 +141,4 @@ pg.locator("aside.config").screenshot(path="part.png")       # 局部图：元�
 
 归纳自实践中沉淀的 PRD 写作 house style + 团队需求文档模板，再吸收通用 PM 方法论（摘要句式、成功指标三件套、行内缺口标记、产出自检）。文风部分单独归纳自 8 份真实 PRD，逐句对照过人写与 AI 写的同一条规则。
 
-后期又从五个开源技能借过规则，都只借规则、不引入工具：humanizer（AI 味的写作 pattern）、superpowers（执行者冷读后把问题分三堆，只问用户能答的；访谈一次一问、边问边回放）、archify（出图前先分类连线、按公式留间距、自动查穿框）、Product-Manager-Skills 的 incoming-request-advisor（访谈前先拆诉求：字面要求和要办成的事分开）、agent-toolkit 的 qa-test-planner（回归集按冒烟、关键路径分层，缺陷报告的必备字段）。
+后期又从六个开源技能借过规则，都只借规则、不引入工具：humanizer（AI 味的写作 pattern）、superpowers（执行者冷读后把问题分三堆，只问用户能答的；访谈一次一问、边问边回放）、archify（出图前先分类连线、按公式留间距、自动查穿框）、Product-Manager-Skills 的 incoming-request-advisor（访谈前先拆诉求：字面要求和要办成的事分开）、agent-toolkit 的 qa-test-planner（回归集按冒烟、关键路径分层，缺陷报告的必备字段，提测准入与测试准出）、qaskills 的 istqb-test-design-techniques（多条件规则列判定表、配置项多时用成对组合）。
